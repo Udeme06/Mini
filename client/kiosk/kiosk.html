@@ -1,0 +1,48 @@
+<template name = "nav">
+	<nav class="navbar navbar-default" role ="navigation"> 
+        		<div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        				<a class="navbar-brand" href="http://localhost:3000/kiosk"><p>Mini-Market</p></a>
+        		</div><!-- navbar-header -->
+                <!-- Collection of nav links and other content for toggling -->
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav push">
+                <li><a data-toggle="dropdown" class="dropdown-toggle" href="http://localhost:3000/">Buy<b class="caret"></b></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Hello udeme</a></li>
+            </ul>
+        </div>     
+    	</nav>
+</template>
+
+<template name ="kiosk">
+  <div class = "container">
+    <header>
+      {{> nav}}
+    </header>
+    <div class = "view-my-items">
+    <div class="row">
+    <form>
+    </form>
+    </div>
+  </div>
+
+  <div class ="view-items-onsale">
+   <div class="row">
+    <ul>
+    {{#each updateItems}}<!--Loop through each object in collections-->
+    <li id ="items">{{userid}}: {{item}}: {{price}}</li><!--Collect the fields in each collection-->
+    {{/each}}
+  </ul>
+   </div>
+  </div>
+
+    
+  </div>
+</template>
