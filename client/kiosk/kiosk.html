@@ -28,21 +28,87 @@
     </header>
     <div class = "view-my-items">
     <div class="row">
+    <div class="col-md-4 col-sm-4">
+
+      <div class = "add-item-form">
+        <h3>Add Item</h3>
     <form>
+        <div class="form-group">
+            <label for="Item Name">Item Name</label>
+            <input type="text" class="form-control" id="item-name" placeholder="Item Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="Price" required>
+        </div>
+        <div class="form-group">
+            <label for="picture">Picture</label>
+            <div class="panel-body">
+              <p>
+                Add Files
+            <span class="btn btn-default btn-file">Upload
+              <input multiple class="file fileInput" type="file">
+            </span>
+          </p>
+          </div>
+        </div>
+        <input type="submit" value="Add Item" class="btn btn-primary">
     </form>
-    </div>
+  </div>
+
+  </div>
+
+  <div class="my-items">
+    <div class = "col-md-8 col-sm-6">
+      <!--<table class="table table-hover table-striped table-bordered">
+        <thead>
+          <th>Name</th>
+          <th>Download</th>
+        </thead>
+        <tbody>
+        {{#each uploads}}  
+        <tr>
+          <td>{{name}}</td>
+          <td>
+            <a class = "btn btn-primary" href="{{url download = true}}">Download</a>
+          </td>
+        </tr>
+        {{/each}}
+        </tbody>
+      </table>-->
+
+      <div class="imageView">
+    {{#each images}}
+      <div>
+        <div class="col-md-4">
+        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a>
+      </div>
+      </div>
+    {{/each}}
+  </div>
+
+
+  </div>
+
+  </div>
+ 
+
+  </div>
+
   </div>
 
   <div class ="view-items-onsale">
    <div class="row">
     <ul>
     {{#each updateItems}}<!--Loop through each object in collections-->
-    <li id ="items">{{userid}}: {{item}}: {{price}}</li><!--Collect the fields in each collection-->
+    <li class ="items {{selectedClass}}">{{userid}}: {{item}}: {{price}}</li><!--Collect the fields in each collection-->
+
     {{/each}}
   </ul>
    </div>
   </div>
 
     
-  </div>
+  </div> <!--End of container-->
 </template>
