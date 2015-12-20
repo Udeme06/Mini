@@ -26,3 +26,15 @@
 .selected{
 	background-color: blue;
 }
+
+.imageView img {
+    border: 8px solid #ecf0f1;
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+}
+
+.imageView div{
+    padding-bottom: 20px;
+}
+
