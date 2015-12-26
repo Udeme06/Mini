@@ -1,10 +1,11 @@
 //helper
-
+var fileObj = { };
 
 Template.kiosk.helpers({
 	'updateItems':function(){
 		return items.find({});
 	},
+
 	'selectedClass':function(){
 		return this._id;
 	},
@@ -12,28 +13,37 @@ Template.kiosk.helpers({
 		return Uploads.find();
 	}*/
 
-	images: function () {
+	images: function (){
     return Images.find(); // Where Images is an FS.Collection instance
-}
+    },
+
+    'fileTitle': function(){
+    	var fileName = document.getElementById("upload").name;
+    	return fileName;
+    }
 
 });
 
 Template.kiosk.events({
-	'submit form': function(event, template){
+	'submit #formId': function(event, template){
 		event.preventDefault();
-		let itemName = template.find('#item-name').value;
+		/*let itemName = template.find('#item-name').value;
 		let price = template.find('#price').value;
-		items.insert({'ItemName': itemName, 'price':price});
-	},
+		items.insert({'ItemName': itemName, 'price':price});*/
 
-	
+		//alert(fileObj.name);
+
+
+		//FS.Utility.eachFile(event, function(file) {
+			Images.insert(fileObj, function (err) { });
+		//});
+	},
 
 	'change .fileInput': function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
-			Images.insert(file, function (err) {
-				
-			});
+			fileObj = new FS.File(file);
 		});
+      
 	}
 
 });

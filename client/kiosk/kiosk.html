@@ -32,12 +32,22 @@
     </header>
 
     <div class="row">
-      <div class="col-md-3 col-sm-4">
+      <div class="col-md-3 col-sm-4 col-xs-4">
 
         <div class = "add-item-form">
           <h3>Add Item</h3>
 
-          <form>
+          <form id = "formId">
+            <!--<div class="form-group pull-right">
+              <select class = "btn btn-primary">
+                <option value = "electronics">Electronics</option>
+                <option value = "home">Home</option>
+                <option value = "book">Book</option>
+                <option value = "accessories">Accessories</option>
+                <option value = "toys">Toys</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <label for="Item Name">Item Name</label>
               <input type="text" class="form-control" id="item-name" placeholder="Item Name" required>
@@ -48,13 +58,18 @@
               <input type="text" class="form-control" id="price" placeholder="Price" required>
             </div>
 
+            <div class="form-group">
+              <label for="description">description</label>
+              <input type="text" class="form-control" id="description" placeholder="Description" required>
+            </div>
+          -->
+
             <div class="input-group">
               <label for="picture">Picture</label>
               <div class="panel-body">
-                <p>
-                  Add Files
+                <p id ="file-title">{{fileTitle}}
                   <span class="btn btn-default btn-file">Upload
-                    <input multiple class="file fileInput" type="file">
+                    <input class="file fileInput" name = "Choose File" id = "upload" type="file">
                   </span>
                 </p>
               </div> 
@@ -66,7 +81,7 @@
       </div>
 
       <div class="my-items">
-        <div class = "col-md-9 col-sm-6">
+        <div class = "col-md-9 col-sm-8 col-xs-8">
           <div class="imageView">
                {{#each images}}
               <div class="col-md-2">
