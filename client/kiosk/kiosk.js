@@ -15,11 +15,6 @@ Template.kiosk.helpers({
 
 	images: function (){
     return Images.find(); // Where Images is an FS.Collection instance
-    },
-
-    'fileTitle': function(){
-    	var fileName = document.getElementById("upload").name;
-    	return fileName;
     }
 
 });
@@ -27,16 +22,14 @@ Template.kiosk.helpers({
 Template.kiosk.events({
 	'submit #formId': function(event, template){
 		event.preventDefault();
-		/*let itemName = template.find('#item-name').value;
+		let itemName = template.find('#item-name').value;
 		let price = template.find('#price').value;
-		items.insert({'ItemName': itemName, 'price':price});*/
+		let description = template.find('#description').value;
+		let category = template.find('#category').value;
+		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category});
 
-		//alert(fileObj.name);
 
-
-		//FS.Utility.eachFile(event, function(file) {
-			Images.insert(fileObj, function (err) { });
-		//});
+	    Images.insert(fileObj, function (err) { });
 	},
 
 	'change .fileInput': function(event, template) {
