@@ -14,7 +14,8 @@ Template.kiosk.helpers({
 	}*/
 
 	images: function (){
-    return Images.find(); // Where Images is an FS.Collection instance
+		let userId = Meteor.userId();
+    return Images.find({$query: {'metadata.owner': userId} }); // Where Images is an FS.Collection instance
     }
 
 });
@@ -26,7 +27,7 @@ Template.kiosk.events({
 		let price = template.find('#price').value;
 		let description = template.find('#description').value;
 		let category = template.find('#category').value;
-		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'user': Meteor.userId()});
+		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'userId': Meteor.userId()});
 
 	    Images.insert(fileObj, function (err) { });
 	},
