@@ -1,0 +1,72 @@
+<template name = "welcome">
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-md-12 ">
+				{{> loginButtons}}
+				{{> signup}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+<template name = "signup">
+	<div class = "sign-up">
+		<h3>Sign Up</h3>
+		<form >
+			<div class="form-group">
+				<label for="Firstname">Firstname</label>
+				<input type="text" class="form-control" placeholder="Firstname" required>
+			</div>
+
+			<div class="form-group">
+				<label for="Lastname">Lastname</label>
+				<input type="text" class="form-control" placeholder="Lastname" required>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="text" class="form-control" placeholder="Email" required>
+			</div>
+
+			<div class="form-group">
+				<label for="Username">Username</label>
+				<input type="text" class="form-control" placeholder="Username" required>
+			</div>
+
+			<div class = "form-group">
+				<label for="Password">Password</label>
+				<input type="password" class="form-control" placeholder="Passoword" required>
+			</div>
+
+			<div class = "form-group">
+				<label for="confirm-Password">Confirm-Password</label>
+				<input type="password" class="form-control" placeholder= "Confirm-Password" required>
+			</div>
+
+			<div class = "form-group">
+				<label for="Address">Address</label>
+				<input type="text" class="form-control" placeholder= "Address" required>
+			</div>
+
+			<div class = "form-group">
+				<label for="City">City</label>
+				<input type="text" class="form-control" placeholder= "City" required>
+			</div>
+
+			<div class = "form-group">
+				<label for="State">State</label>
+				<select class = "form-control">
+					<option id="category" value = "electronics" required>Electronics</option>
+					<option id="category" value = "home" required>Home</option>
+					<option id="category" value = "book" required>Book</option>
+					<option id="category" value = "accessories" required>Accessories</option>
+					<option id="category" value = "toys" required>Toys</option>
+				</select>
+			</div>
+
+			<input type="submit" value="Sign up" class="btn btn-primary">
+		</form>
+	</div>
+</template>

@@ -24,3 +24,5 @@ pfafman:photo-up
 cfs:standard-packages
 cfs:filesystem
 cfs:graphicsmagick
+accounts-password
+accounts-ui

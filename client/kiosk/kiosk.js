@@ -20,7 +20,7 @@ Template.kiosk.helpers({
 });
 
 Template.kiosk.events({
-	'submit #formId': function(event, template){
+	'submit #kiosk-form': function(event, template){
 		event.preventDefault();
 		let itemName = template.find('#item-name').value;
 		let price = template.find('#price').value;
