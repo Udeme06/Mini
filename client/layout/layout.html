@@ -1,14 +1,14 @@
 <template name = "layout">
-	<div class="container">
+	<div class="container-fluid">
 	{{#if currentUser}}
 		<header>
 			 {{> nav}}
 		</header>
-		
+
 	{{/if}}
 </div>
 
-<div class = "container">
+<div class = "container-fluid">
     {{> yield}}
 </div>
 </template>
@@ -27,11 +27,11 @@
     </div><!-- navbar-header -->
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav push">
+      <ul class="nav navbar-nav">
         <li><a data-toggle="dropdown" class="dropdown-toggle" href="http://localhost:3000/">Buy<b class="caret"></b></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Hello udeme</a></li>
+        <li class = "logout"><a href="#">Hello{{currentUser}}</a></li>
       </ul>
     </div>     
   </nav>

@@ -26,8 +26,7 @@ Template.kiosk.events({
 		let price = template.find('#price').value;
 		let description = template.find('#description').value;
 		let category = template.find('#category').value;
-		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category});
-
+		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'user': Meteor.userId()});
 
 	    Images.insert(fileObj, function (err) { });
 	},
@@ -35,6 +34,7 @@ Template.kiosk.events({
 	'change .fileInput': function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
 			fileObj = new FS.File(file);
+			fsFile.owner = Meteor.userId();
 		});
       
 	}
