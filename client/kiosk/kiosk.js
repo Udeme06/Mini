@@ -1,9 +1,11 @@
 //helper
 var fileObj = { };
+var itemId = this._id;
+var userId = Meteor.userId();
 
 Template.kiosk.helpers({
 	'updateItems':function(){
-		return items.find({});
+		return userId;
 	},
 
 	'selectedClass':function(){
@@ -13,9 +15,8 @@ Template.kiosk.helpers({
 		return Uploads.find();
 	}*/
 
-	images: function (){
-		let userId = Meteor.userId();
-    return Images.find({$query: {'metadata.owner': userId} }); // Where Images is an FS.Collection instance
+	'images': function (){
+        return Images.find({"metadata.owner": userId}); // Where Images is an FS.Collection instance
     }
 
 });
@@ -27,7 +28,7 @@ Template.kiosk.events({
 		let price = template.find('#price').value;
 		let description = template.find('#description').value;
 		let category = template.find('#category').value;
-		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'userId': Meteor.userId()});
+		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'user_Id': userId});
 
 	    Images.insert(fileObj, function (err) { });
 	},
@@ -35,7 +36,8 @@ Template.kiosk.events({
 	'change .fileInput': function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
 			fileObj = new FS.File(file);
-			fsFile.owner = Meteor.userId();
+			fileObj.metadata = {owner: userId};
+			
 		});
       
 	}
