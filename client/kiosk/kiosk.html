@@ -54,12 +54,12 @@
         {{#each images}}
         <div class="col-md-2">
           <div class = "space">
+            <input class = "checkbox" type="checkbox">
             <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a>
-            <button class = "remove btn btn-success">remove</button>
+            <button class = "delete btn btn-danger">remove</button>
           </div>
         </div>
         {{/each}}
-
       </div>
     </div><!--End of my items-->
 

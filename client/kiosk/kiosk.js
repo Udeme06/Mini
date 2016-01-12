@@ -28,13 +28,11 @@ Template.kiosk.events({
 		items.insert(itemNew, function(error, result){
 			if(!error){
 				id = result;
-				alert(id);
+				fileObj.metadata = {owner: userId, itemId: id};
 			}else{
 				alert("item not added");
 			}
 		}); 
-        //Session.set('itemId', id);
-        fileObj.metadata = {owner: userId, itemId: id};
 	    Images.insert(fileObj, function (err) { });
 	},
 
