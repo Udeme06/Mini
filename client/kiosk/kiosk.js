@@ -39,7 +39,7 @@ Template.kiosk.events({
 	};
 		items.insert(itemNew, function(error, result){
 			if(!error){
-				id = result._id;
+				id = result;
 				alert(id);
 			}else{
 				alert("item not added");
