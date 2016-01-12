@@ -50,11 +50,12 @@
 
       <div class="my-items">
         <div class = "col-md-9 col-sm-6 col-xs-6">
-          <p>{{updateItems}}</p>
+          <p>{{selectedClass}}</p>
           <div class="imageView">
                {{#each images}}
               <div class="col-md-2">
                 <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a>
+                <button class = "remove btn btn-success">remove</button>
               </div>
               {{/each}}
           </div>

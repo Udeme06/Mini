@@ -1,22 +1,27 @@
 //helper
 var fileObj = { };
-var itemId = this._id;
+//var itemId = this._id;
 var userId = Meteor.userId();
+var id;
 
 Template.kiosk.helpers({
-	'updateItems':function(){
+	/*'updateItems':function(){
 		return userId;
-	},
+	},*/
 
 	'selectedClass':function(){
-		return this._id;
+		return id;
+
+		/*var selectedPlayer = Session.get('itemId');
+    return selectedPlayer;*/
 	},
 	/*uploads:function(){
 		return Uploads.find();
 	}*/
 
 	'images': function (){
-        return Images.find({"metadata.owner": userId}); // Where Images is an FS.Collection instance
+        //return Images.find({ $and: [{"metadata.owner": userId}, {"metadata.itemId": itemId}]}); // Where Images is an FS.Collection instance
+       // return Images.find({'metadata.owner': userId});
     }
 
 });
@@ -24,12 +29,25 @@ Template.kiosk.helpers({
 Template.kiosk.events({
 	'submit #kiosk-form': function(event, template){
 		event.preventDefault();
-		let itemName = template.find('#item-name').value;
-		let price = template.find('#price').value;
-		let description = template.find('#description').value;
-		let category = template.find('#category').value;
-		items.insert({'ItemName': itemName, 'price':price, 'description': description, 'category': category, 'user_Id': userId});
 
+		var itemNew = {
+		itemName: template.find('#item-name').value,
+		price: template.find('#price').value,
+		description: template.find('#description').value,
+		category: template.find('#category').value,
+		owner: userId
+	};
+		items.insert(itemNew, function(error, result){
+			if(!error){
+				id = result._id;
+				alert(id);
+			}else{
+				alert("item not added");
+			}
+		});
+		//setTimeout(function(){},1000); 
+        //Session.set('itemId', id);
+        /*fileObj.metadata = {owner: userId, itemId: id};*/
 	    Images.insert(fileObj, function (err) { });
 	},
 
