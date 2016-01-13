@@ -1,2 +1,2 @@
 # Mini
-Mini is a mini E-commerce site for buying and selling products to friends
+Mini is a small scale E-commerce site for buying and selling products from and to friends.
