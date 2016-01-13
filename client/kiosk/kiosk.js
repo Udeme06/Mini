@@ -29,19 +29,23 @@ Template.kiosk.events({
 			if(!error){
 				id = result;
 				fileObj.metadata = {owner: userId, itemId: id};
-			}else{
+				Images.insert(fileObj, function (err) { });
+			}
+			else{
 				alert("item not added");
 			}
 		}); 
-	    Images.insert(fileObj, function (err) { });
+	    //Images.insert(fileObj, function (err) { });
 	},
 
 	'change .fileInput': function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
 			fileObj = new FS.File(file);
-			//fileObj.metadata = {owner: userId};
 		});
 	}
 
+	/*'click .delete': function(){
+	
+	}
 });
 

@@ -1,6 +1,6 @@
 <template name ="kiosk">
   <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-6">
+    <div class="col-md-2 col-sm-6 col-xs-6">
 
       <div class = "add-item-form">
         <h3>Add Item</h3>
@@ -49,12 +49,11 @@
     </div>
 
     <div class="my-items">
-      <div class = "col-md-9 col-sm-6 col-xs-6">
+      <div class = "col-md-10 col-sm-6 col-xs-6">
         <h2>My Items</h2>
         {{#each images}}
         <div class="col-md-2">
           <div class = "space">
-            <input class = "checkbox" type="checkbox">
             <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a>
             <button class = "delete btn btn-danger">remove</button>
           </div>
