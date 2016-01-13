@@ -24,11 +24,7 @@ Template.kiosk.events({
 			category: template.find('#category').value,
 			owner: userId
 		};
-		Items.insert(fileObj, function (err) { 
-			if (err) {
-				alert("Item not inserted");  
-			} 
-		});
+		Items.insert(fileObj, function (err) {});
 	},
 
 	'change .fileInput': function(event, template) {
