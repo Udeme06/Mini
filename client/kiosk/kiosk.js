@@ -8,8 +8,8 @@ Template.kiosk.helpers({
 	}*/
 
 	'items': function (){ 
-       return Items.find({'metadata.owner': userId});
-    }
+		return Items.find({'metadata.owner': userId});
+	}
 
 });
 
@@ -18,12 +18,12 @@ Template.kiosk.events({
 		event.preventDefault();
 
 		fileObj.metadata = {
-		itemName: template.find('#item-name').value,
-		price: template.find('#price').value,
-		description: template.find('#description').value,
-		category: template.find('#category').value,
-		owner: userId
-	};
+			itemName: template.find('#item-name').value,
+			price: template.find('#price').value,
+			description: template.find('#description').value,
+			category: template.find('#category').value,
+			owner: userId
+		};
 		Items.insert(fileObj, function (err) { });
 	},
 
@@ -33,15 +33,9 @@ Template.kiosk.events({
 		});
 	},
 
-	'click .player': function(){
-    var itemid = this._id;
-    Session.set('selectedPlayer', playerId);
-    var selectedPlayer = Session.get('selectedPlayer');
-},
-
 	'click .delete': function(){
 		var itemid = this._id; 
-	   Items.remove(itemid);
+		Items.remove(itemid);
 	}
 });
 

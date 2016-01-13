@@ -28,7 +28,7 @@
           </div>
 
           <div class="form-group">
-            <label for="description">description</label>
+            <label for="description">Description</label>
             <input type="text" class="form-control" id="description" placeholder="Description" required>
           </div>
 
@@ -48,14 +48,21 @@
       </div> <!--add-item-form-->
     </div>
 
-    <div class="my-items">
+    
       <div class = "col-md-10 col-sm-6 col-xs-6">
-        <h2>My Items</h2>
+        <div class="my-items">
+        <h3>My Items</h3>
         {{#each items}}
         <div class="col-md-2">
           <div class = "space">
-            <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a>
-            <button class = "delete btn btn-danger">remove</button>
+            <ul class = "list-unstyled">
+            <li><b>Item Name:</b> {{metadata.itemName}}</li>
+            <li><a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a></li>
+            <li><b>Price:</b> {{metadata.price}}</li>
+            <li><b>Category:</b> {{metadata.category}}</li>
+            <li><b>Description:</b> {{metadata.description}}</li>
+            <li><button class = "delete btn btn-danger btn-xs">remove</button></li>
+          </ul>
           </div>
         </div>
         {{/each}}
