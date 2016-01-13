@@ -1,6 +1,4 @@
-//helper
 var fileObj = { };
-//var itemId = this._id;
 var userId = Meteor.userId();
 var id;
 
@@ -9,8 +7,8 @@ Template.kiosk.helpers({
 		return Uploads.find();
 	}*/
 
-	'images': function (){ 
-       return Images.find({'metadata.owner': userId});
+	'items': function (){ 
+       return Items.find({'metadata.owner': userId});
     }
 
 });
@@ -18,34 +16,32 @@ Template.kiosk.helpers({
 Template.kiosk.events({
 	'submit #kiosk-form': function(event, template){
 		event.preventDefault();
-		var itemNew = {
+
+		fileObj.metadata = {
 		itemName: template.find('#item-name').value,
 		price: template.find('#price').value,
 		description: template.find('#description').value,
 		category: template.find('#category').value,
 		owner: userId
 	};
-		items.insert(itemNew, function(error, result){
-			if(!error){
-				id = result;
-				fileObj.metadata = {owner: userId, itemId: id};
-				Images.insert(fileObj, function (err) { });
-			}
-			else{
-				alert("item not added");
-			}
-		}); 
-	    //Images.insert(fileObj, function (err) { });
+		Items.insert(fileObj, function (err) { });
 	},
 
 	'change .fileInput': function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
 			fileObj = new FS.File(file);
 		});
-	}
+	},
 
-	/*'click .delete': function(){
-	
+	'click .player': function(){
+    var itemid = this._id;
+    Session.set('selectedPlayer', playerId);
+    var selectedPlayer = Session.get('selectedPlayer');
+},
+
+	'click .delete': function(){
+		var itemid = this._id; 
+	   Items.remove(itemid);
 	}
 });
 
