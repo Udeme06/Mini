@@ -8,6 +8,7 @@ Template.kiosk.helpers({
 	}*/
 
 	'items': function (){ 
+		alert(userId);
 		return Items.find({'metadata.owner': userId});
 	}
 

@@ -6,9 +6,9 @@
         <h3>Add Item</h3>
 
         <form id = "kiosk-form">
-          <div class="form-group pull-right">
+          <div class="form-group">
             <label for="category">Category</label>
-            <select class = "btn btn-primary form-control">
+            <select class = "btn btn-primary form-control" data-header="Category" required>
               <option id="category" value = "electronics" required>Electronics</option>
               <option id="category" value = "home" required>Home</option>
               <option id="category" value = "book" required>Book</option>
@@ -29,7 +29,7 @@
 
           <div class="form-group">
             <label for="description">Description</label>
-            <input type="text" class="form-control" id="description" maxlength="25" placeholder="Description" required>
+            <input type="text" class="form-control" id="description" maxlength="50" placeholder="Description" required>
           </div>
 
           <div class = "form-group">
@@ -51,12 +51,12 @@
     
     <div class = "col-md-10 col-sm-8 col-xs-12">
       <div class="my-items">
-        <h3>My Items</h3>
+        <h3 class = "text-center">My Items</h3>
         {{#each items}}
         <div class="col-md-2 col-sm-6 col-xs-6">
           <div class = "space">
             <ul class = "list-unstyled">
-              <li><b>Item Name:</b> {{metadata.itemName}}</li>
+              <li><b>Name:</b> {{metadata.itemName}}</li>
               <li><a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a></li>
               <li><b>Price: </b>${{metadata.price}}</li>
               <li><b>Category:</b> {{metadata.category}}</li>
@@ -67,7 +67,7 @@
         </div>
         {{/each}}
       </div>
-    </div><!--End of my items-->
+    </div>
 
   </div> <!--row-->
 

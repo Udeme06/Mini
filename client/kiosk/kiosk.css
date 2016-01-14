@@ -1,34 +1,41 @@
 .add-item-form {
-	border: 1px Solid blue;
 	padding: 7px;
-	border-radius: 5px;
-}
-.btn-file {
-    position: relative;
-    overflow: hidden;
+	border-radius: 15px;
+    background-color: #222;
 }
 
-.selected {
-	background-color: blue;
+.my-items{
+ background-image: url("img/tabletop.jpg");
+ background-repeat: repeat-y;
+ height: 1000px;
+ max-height: 100%;
+ border-radius: 5px;
+ color: #F5ECDB;
+}
+
+.space h3 {
+    font-size:1.9rem;
 }
 
 .space img {
     width: 100%;
     height: 100%;
     max-width: 100%;
-    border-left: 3px solid #ecf0f1;
-    border-right: 3px solid #ecf0f1;
+    background-color: #6F4E37;
 }
 
 .space {
     width: 180px;
     height: 220px;
-    padding-bottom: 220px;
     margin: 75px 30px 135px 0;
-    
+    background-color: #6F4E37;
+    border-radius:5px; 
+    color: #F5ECDB;
 }
 
 .space ul{
-    border: 2px solid #ecf0f1;
+    border-radius:5px;
+    background-color: #6F4E37;
+    border: 1px solid #D5CEBF;
 }
 
