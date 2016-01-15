@@ -25,12 +25,13 @@
       </button>
       <a class="navbar-brand" href="http://localhost:3000/kiosk"><p>Mini-Market</p></a>
     </div><!-- navbar-header -->
+    
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><a href="{{pathFor route='kiosk'}}">Kiosk</a></li>
         <li><a href="{{pathFor route='buy'}}">Buy</a></li>
-        <li><a href="{{pathFor route='profile'}}">Profile</a></li>
+        <li><a href="#" class = "badge">{{ItemAmount}} Items</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Hello, {{currentUser.emails.[0].address}}</a></li>

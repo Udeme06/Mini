@@ -10,5 +10,10 @@ Template.layout.helpers({
 		var currentUser = Meteor.user();
 		return currentUser;
 	}
+});
 
+Template.nav.helpers({
+	'ItemAmount': function (){
+		return Items.find({'metadata.owner': Meteor.userId()}).count();
+	}
 });
