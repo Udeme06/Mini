@@ -7,9 +7,7 @@ Template.welcome.events({
 			if(error){
 				$('#error-message').text(error.reason);
 			} 
-			// else {
-			// 	Router.go('welcome');
-			// }
+
 			if (Meteor.userId) {
 		        Router.go('/buy');
 		    }

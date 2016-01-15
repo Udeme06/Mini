@@ -6,7 +6,7 @@
 
 .my-items{
  background-image: url("img/tabletop.jpg");
- background-repeat: repeat-y;
+ background-repeat: repeat;
  height: 1000px;
  max-height: 100%;
  border-radius: 5px;
