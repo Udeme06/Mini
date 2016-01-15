@@ -2,19 +2,19 @@
   <div class="row">
     <!--<div class="col-xs-12"><p id = "color-me">{{message}}</p></div>-->
     
-    <div class="col-md-2 col-sm-4 col-xs-12">
+    <div class="col-md-2 col-lg-2 col-sm-4 col-xs-12">
       <div class = "add-item-form">
         <h3>Add Item</h3>
 
         <form id = "kiosk-form">
           <div class="form-group">
             <label for="category">Category</label>
-            <select class = "btn btn-primary form-control" data-header="Category" required>
-              <option id="category" value = "electronics" required>Electronics</option>
-              <option id="category" value = "home" required>Home</option>
-              <option id="category" value = "book" required>Book</option>
-              <option id="category" value = "accessories" required>Accessories</option>
-              <option id="category" value = "toys" required>Toys</option>
+            <select id="category" class = "btn btn-primary form-control">
+              <option value = "electronics">Electronics</option>
+              <option value = "home">Home</option>
+              <option value = "book">Book</option>
+              <option value = "accessories">Accessories</option>
+              <option value = "toys">Toys</option>
             </select>
           </div>
 
@@ -50,12 +50,12 @@
     </div>
 
     
-    <div class = "col-md-10 col-sm-8 col-xs-12">
+    <div class = "col-md-10 col-lg-10 col-sm-8 col-xs-12">
       <div class="my-items">
         {{#if currentUser}}
         <h3 class = "text-center">My Items</h3>
         {{#each items}}
-        <div class="col-md-2 col-sm-6 col-xs-6">
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-6">
           <div class = "space">
             <ul class = "list-unstyled">
               <li><b>Name:</b> {{metadata.itemName}}</li>

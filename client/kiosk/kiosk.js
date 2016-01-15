@@ -36,16 +36,14 @@ Template.kiosk.events({
 			description: template.find('#description').value,
 			category: template.find('#category').value,
 			owner: Meteor.userId()
+     
 		};
 
 		if((Items.find({'metadata.owner': Meteor.userId()}).count()) <= 10){
-        Session.set('confirm', true);
 		Items.insert(fileObj, function (err) {});
 		fileObj = { };
-        Session.set('confirmAdd', true);
 	    }
 	    else{
-	    Session.set('confirmAdd', false);
         fileObj = { };
 	    }
 
