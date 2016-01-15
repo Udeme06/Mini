@@ -1,6 +1,6 @@
-var fileObj = { };
-var userId = Meteor.userId();
-var id;
+Template.kiosk.onRendered( function() {
+	fileObj = { };
+});
 
 Template.kiosk.helpers({
 	/*uploads:function(){
@@ -8,8 +8,7 @@ Template.kiosk.helpers({
 	}*/
 
 	'items': function (){ 
-		alert(userId);
-		return Items.find({'metadata.owner': userId});
+		return Items.find({'metadata.owner': Meteor.userId()});
 	}
 
 });
@@ -23,9 +22,10 @@ Template.kiosk.events({
 			price: template.find('#price').value,
 			description: template.find('#description').value,
 			category: template.find('#category').value,
-			owner: userId
+			owner: Meteor.userId()
 		};
 		Items.insert(fileObj, function (err) {});
+		fileObj = { };
 	},
 
 	'change .fileInput': function(event, template) {
