@@ -1,34 +1,99 @@
 <template name="welcome">
 	<div id="login">
-	    <div class="flex-container">
-	        <div class="login-form">
-	        	<div class="col-xs-12 text-center"><h1> Mini-Market </h1></div>
+		<div class="flex-container">
+			<div class="login-form">
+				<div class="col-xs-12 text-center"><h1> Mini-Market </h1></div>
 
-<div class="col-xs-12 text-center"><span id="error-message"></span></div>
+				<div class="col-xs-12 text-center"><span id="error-message"></span></div>
 
-	            <form class="form-horizontal">
-	                <br>
-	                <div class="form-group">
-	                    <label for="input-email" class="col-xs-12 text-center label-login">Email</label>
-	                    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-	                        <input type="email" required class="form-control input-login" id="input-email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-	                    </div>
-	                </div>
-	                <div class="form-group">
-	                    <label for="input-password" class="col-xs-12 text-center label-login">Password</label>
-	                    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-	                        <input type="password" required class="form-control input-login" id="input-password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-	                    </div>
-	                </div>
-	                <div class="form-group">
-	                    <div class="col-xs-12 text-center">
-	                        <button class="btn btn-default btn-lg" id="login-button">Login</button>
-	                        <button class="btn btn-default btn-lg" id="register-button">Register</button>
-		                </div>
-		            </div>
-	            </form>
-	        </div>
-	    </div>   	
+				<div class="col-xs-12 text-center">
+					{{#unless currentUser}}
+					<button class="login btn btn-default">Login</button>
+					<button class="register btn btn-default">Register</button>
+					<br>
+					<br>
+					{{/unless}}
+				</div>
+
+
+
+				{{#with userPressedLogin}}
+				<form id = "login-form" class="login-form form-horizontal">
+					<div class="form-group">
+						<label for="input-email" class="col-xs-12 text-center label-login">Email</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="email" required class="form-control input-login" id="input-email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input-password" class="col-xs-12 text-center label-login">Password</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="password" required class="form-control input-login" id="input-password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-12 text-center">
+							<button class="btn btn-default btn-lg" id="login-button">Login</button>
+						</div>
+					</div>
+				</form>
+				{{/with}}
+
+
+				{{#with userPressedRegister}}
+				<form id = "register-form" class="form-horizontal">
+					<br>
+					<br>
+					<div class="form-group">
+						<label for="input-firstname" class="col-xs-12 text-center label-login">Firstname</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="text" required class="form-control input-login" id="input-firstname" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input-lastname" class="col-xs-12 text-center label-login">Lastname</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="text" required class="form-control input-login" id="input-lastname" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input-email" class="col-xs-12 text-center label-login">Email</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="email" required class="form-control input-login" id="input-email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="input-password" class="col-xs-12 text-center label-login">Password</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="password" required class="form-control input-login" id="input-password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input-mailing" class="col-xs-12 text-center label-login">Mailing Address</label>
+						<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+							<input type="text" required class="form-control input-login" id="input-mailing" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-12 text-center">
+							<button class="btn btn-default btn-lg" id="register-button">Register</button>
+						</div>
+					</div>
+				</form>
+				{{/with}}
+
+
+
+
+
+			</div>   	
+		</div>
 	</div>
 </template>
 

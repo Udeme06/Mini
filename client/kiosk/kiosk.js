@@ -29,17 +29,15 @@ Template.kiosk.helpers({
 Template.kiosk.events({
 	'submit #kiosk-form': function(event, template){
 		event.preventDefault();
-        
-		fileObj.metadata = {
+      
+		if((Items.find({'metadata.owner': Meteor.userId()}).count()) <= 11){
+			fileObj.metadata = {
 			itemName: template.find('#item-name').value,
 			price: template.find('#price').value,
 			description: template.find('#description').value,
 			category: template.find('#category').value,
 			owner: Meteor.userId()
-     
 		};
-
-		if((Items.find({'metadata.owner': Meteor.userId()}).count()) <= 10){
 		Items.insert(fileObj, function (err) {});
 		fileObj = { };
 	    }

@@ -1,7 +1,3 @@
-Template.buy.onRendered(function(){
-   Items.find({});
-});
-
 var cart = [];
 
 Template.buy.events({
