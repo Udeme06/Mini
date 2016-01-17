@@ -3,7 +3,8 @@
 
 		<ul class="nav nav-pills">
 			<li class="add-space">
-				<select id="category" class = "btn btn-default form-control" data-header="Category">
+				<select id="category" class = "btn btn-default form-control">
+					<option>Category</option>
 					<option value = "electronics">Electronics</option>
 					<option value = "home">Home</option>
 					<option value = "book">Book</option>
@@ -37,7 +38,7 @@
 				{{#each items}}
 				<div class="col-md-2 col-sm-4 col-xs-6">
 					<div class = "space-item">
-						<ul class = "list-unstyled">
+						<ul class = "{{selectedClass}} list-unstyled">
 							<li><b>Item Name:</b> {{metadata.itemName}}</li>
 							<li><a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a></li>
 							<li><b>Price:</b> ${{metadata.price}}</li>

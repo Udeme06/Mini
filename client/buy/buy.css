@@ -32,3 +32,8 @@
     background-color: #6F4E37;
     border: 1px solid #D5CEBF;
 }
+
+.selected {
+   opacity: 0.7; 
+
+}
