@@ -1,5 +1,5 @@
 Template.welcome.onRendered(function(){
- return Items.find({'Meteor.owner': {$ne: Meteor.userId()} });
+ return Items.find({'Meteor.owner': {$ne: Meteor.userId()}});
 });
 
 var cart = [];
