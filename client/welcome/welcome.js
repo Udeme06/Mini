@@ -50,7 +50,7 @@ Template.welcome.events({
 var options = {
 email: email,
 password: password,
-	profile: { firstname: firstname,
+	profile: {firstname: firstname,
 	lastname: lastname,
 	mailing: mailing }
 };
