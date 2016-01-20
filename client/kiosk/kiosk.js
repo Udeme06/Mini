@@ -3,11 +3,7 @@ Template.kiosk.onRendered( function() {
 
 });
 
-Template.kiosk.helpers({
-	/*uploads:function(){
-		return Uploads.find();
-	}*/
-
+Template.kiosk.helpers({	
 	'items': function (){ 
 		return Items.find({'metadata.owner': Meteor.userId()});
 	},
@@ -36,6 +32,8 @@ Template.kiosk.events({
 			price: template.find('#price').value,
 			description: template.find('#description').value,
 			category: template.find('#category').value,
+			purchasedBy:"setUpon purchase",
+			available: "yes",
 			owner: Meteor.userId()
 		};
 		Items.insert(fileObj, function (err) {});
