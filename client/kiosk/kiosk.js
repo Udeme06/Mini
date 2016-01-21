@@ -32,7 +32,7 @@ Template.kiosk.events({
 			price: template.find('#price').value,
 			description: template.find('#description').value,
 			category: template.find('#category').value,
-			purchasedBy:"setUpon purchase",
+			purchasedBy:"none",
 			available: "yes",
 			owner: Meteor.userId()
 		};

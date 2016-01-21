@@ -7,28 +7,31 @@ var cart = [];
 Template.buy.events({
 	'change #category':function(){
 		var category = $("#category option:selected").val(); 
-       //alert(category);
-       Session.set('category', category);
-     },
+   Session.set('category', category);
+ },
 
-     'click .addCart': function(){
-      var item = this._id;
+ 'click .addCart': function(){
+  var item = this._id;
+//checkk if the item already exists in the cart
+  if(cart.indexOf(item)<0) {
+    cart.push(item);
+    console.log(cart);
+    Items.update( 
+      {_id: item},
+      { $set: {'metadata.available': "no"} });
+    
+    Session.set('cart', cart);
+    Session.set('increment', cart.length);  
+    cart = Session.get('cart');  
+  }
+  else {
+    cart = Session.get('cart');
+   Session.set('increment', cart.length);
+ }
+ cart = Session.get('cart');
+}
 
-      if(cart.indexOf(item)<0){
-        cart.push(item);
-       Items.update( 
-        {_id: item},
-        { $set: {'metadata.available': "no"} });
-
-       Session.set('cart', cart);
-       Session.set('increment', cart.length);    
-     }
-     else{
-       Session.set('increment', cart.length);
-     }
-   }
-
- });
+});
 
 Template.buy.helpers({
 	'items': function(){
