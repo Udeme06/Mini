@@ -14,6 +14,6 @@ Template.layout.helpers({
 
 Template.nav.helpers({
 	'ItemAmount': function (){
-		return Items.find({'metadata.owner': Meteor.userId()}).count();
+		return Items.find({$and: [{'metadata.purchasedBy':"none"}, {'metadata.owner': Meteor.userId()}]}).count();
 	}
 });
