@@ -36,7 +36,7 @@ Template.buy.events({
 Template.buy.helpers({
 	'items': function(){
 		var categoryName = Session.get('category');
-		return Items.find({ $and: [{'metadata.available': "yes"}, {'metadata.owner':{$ne: Meteor.userId()}}, {'metadata.category': categoryName} ] });
+		return Items.find({ $and: [{'metadata.available': "yes"}, {'metadata.owner':{$ne: Meteor.userId()}}, {'metadata.category': categoryName}, {'metadata.purchasedBy':"none"}] });
 	},
 
 	'ItemNumber':function(){

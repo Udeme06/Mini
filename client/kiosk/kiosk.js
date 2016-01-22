@@ -5,7 +5,7 @@ Template.kiosk.onRendered( function() {
 
 Template.kiosk.helpers({	
 	'items': function (){ 
-		return Items.find({'metadata.owner': Meteor.userId()});
+		return Items.find({$and: [{'metadata.purchasedBy':"none"}, {'metadata.owner': Meteor.userId()}]});
 	},
 
 	'message':function(){
