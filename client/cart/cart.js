@@ -28,14 +28,13 @@ Template.cart.events({
     
     let item = Items.findOne({_id: bag[count]}, {fields: {'metadata.price': 1}});
     totalCost += Number(item.metadata.price);
-    console.log(totalCost);
-    
     }
+
     let user = Meteor.users.findOne({_id: Meteor.userId()}, {fields: {'profile.cash': 1}});
     var money = Number(user.profile.cash);
     money  = money - totalCost;
-    console.log(money);
     Meteor.users.update({_id: Meteor.userId()}, { $set: {'profile.cash': money} });
+    
     let empty = [];
     Session.set('cart', empty);
     Session.set('increment', empty.length)
