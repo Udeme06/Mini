@@ -1,0 +1,39 @@
+<template name = "cart">
+	<div class="row"> 
+    <div class="col-md-2 col-lg-2 col-sm-4 col-xs-12">
+      <div class = "add-item-form">
+        <h3 class="text-center">Purchase</h3>
+            <button class = "center-block btn btn-primary cash">Cash</button>
+            <br>
+            <br>
+            <button class = "center-block btn btn-primary stars">Stars</button>
+      </div> <!--add-item-form-->
+    </div>
+
+
+
+    <div class = "col-md-10 col-lg-10 col-sm-8 col-xs-12">
+      <div class="my-items">
+        <h3 class = "text-center">My Cart</h3>
+        {{#if currentUser}}
+    
+        {{#each cart}}
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-6">
+          <div class = "space">
+            <ul class = "list-unstyled">
+              <li><b>Name:</b> {{metadata.itemName}}</li>
+              <li><a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbail img-responsive"></a></li>
+              <li><b>Price: </b>${{metadata.price}}</li>
+              <li><b>Category:</b> {{metadata.category}}</li>
+              <li><b>Description:</b> {{metadata.description}}</li>
+              <li><button class = "remove btn btn-danger btn-xs">remove from cart</button></li>
+            </ul>
+          </div>
+        </div>
+        {{/each}}
+        {{/if}}
+      </div>
+    </div>
+
+  </div> <!--row-->
+</template>
